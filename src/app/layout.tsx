@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
-import Navbar from "../components/Navbar";
 import { ThemeProvider } from "../components/ThemeProvider";
 import { SessionProvider } from "next-auth/react"
 
@@ -29,7 +28,6 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <Navbar />
             {children}
           </ThemeProvider>
         </SessionProvider>
