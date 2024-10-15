@@ -1,13 +1,13 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { FaArrowLeft } from "react-icons/fa";
+import { HiOutlineArrowLeft } from "react-icons/hi";
 
 export const BackButton = () => {
   const router = useRouter();
   return (
     <button onClick={() => router.back()}>
-      <FaArrowLeft className="text-3xl" />
+      <HiOutlineArrowLeft className="text-lg md:text-2xl" />
     </button>
   );
 };
