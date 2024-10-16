@@ -1,18 +1,28 @@
 import { auth } from "@/auth";
 import Navbar from "@/components/Navbar";
 import { redirect } from "next/navigation";
+import Breadcrumb from "@/components/Breadcrumb";
 
 const Dashboard = async () => {
-  const session = await auth()
+  const session = await auth();
 
-  if (!session) return redirect("/login")
+  if (!session) return redirect("/login");
+
+  const paths = [
+    { name: "Home", href: "/dashboard" },
+    { name: "Project", href: "/project" },
+    { name: "Task", href: "/task" },
+    { name: "Group", href: "/group" },
+  ];
 
   return (
     <div>
       <Navbar />
-      <h1>Dashboard</h1>
+      <div className="w-full h-full flex flex-col px-8 mb-8">
+        <Breadcrumb paths={paths} />
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default Dashboard;
