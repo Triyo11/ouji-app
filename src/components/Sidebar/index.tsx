@@ -10,30 +10,37 @@ import { useState } from "react";
 import OverlayPanelSetting from "./OverlayPanelSetting";
 
 const Sidebar = () => {
-  const [invisibleBadgeNotification, setInvisibleBadgeNotification] = useState(false);
+  const [invisibleBadgeNotification, setInvisibleBadgeNotification] =
+    useState(false);
   const [invisibleBadgeMessage, setInvisibleBadgeMessage] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
   // jika menggunakan useAuth() harus menggunakan use client
   const user = useAuth();
 
   return (
-    <div className="absolute top-0 left-0 h-screen max-w-max p-4 flex flex-col items-center justify-between bg-[var(--accent)] shadow-md">
+    <div className="absolute top-0 left-0 h-screen max-w-max p-4 flex flex-col items-center justify-between bg-scheme-1-foreground">
       <div className="flex flex-col items-center gap-8">
         <Image
           src={user?.image ?? ""}
           alt="avatar"
           width={30}
           height={30}
-          className="rounded-full"
+          className="rounded-full border border-scheme-1-background"
         />
         <div className="flex flex-col items-center gap-4">
           <button
             className={`${!user ? "hidden" : ""}`}
-            onClick={() => setInvisibleBadgeNotification(!invisibleBadgeNotification)}
+            onClick={() =>
+              setInvisibleBadgeNotification(!invisibleBadgeNotification)
+            }
             aria-label="notifications"
           >
-            <Badge variant="dot" color="error" invisible={invisibleBadgeNotification}>
-              <IoNotifications className="text-2xl text-[var(--background)] dark:text-[var(--foreground)]" />
+            <Badge
+              variant="dot"
+              color="error"
+              invisible={invisibleBadgeNotification}
+            >
+              <IoNotifications className="text-2xl text-scheme-1-background" />
             </Badge>
           </button>
           <button
@@ -41,16 +48,20 @@ const Sidebar = () => {
             onClick={() => setInvisibleBadgeMessage(!invisibleBadgeMessage)}
             aria-label="messages"
           >
-            <Badge variant="dot" color="error" invisible={invisibleBadgeMessage}>
-              <BsChatRightTextFill className="text-xl text-[var(--background)] dark:text-[var(--foreground)]"/>
+            <Badge
+              variant="dot"
+              color="error"
+              invisible={invisibleBadgeMessage}
+            >
+              <BsChatRightTextFill className="text-xl text-scheme-1-background" />
             </Badge>
           </button>
         </div>
       </div>
       <div className="relative">
-        <OverlayPanelSetting show={showSettings} setShow={setShowSettings}/>
+        <OverlayPanelSetting show={showSettings} setShow={setShowSettings} />
         <button onClick={() => setShowSettings(!showSettings)}>
-          <PiGearFill className="text-2xl text-[var(--background)] dark:text-[var(--foreground)]" />
+          <PiGearFill className="text-2xl text-scheme-1-background" />
         </button>
       </div>
     </div>

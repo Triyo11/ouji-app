@@ -15,13 +15,13 @@ const OverlayPanelSetting = ({
         { "translate-x-5 opacity-100 visible": show },
         { "-translate-x-0 opacity-0 invisible": !show },
         "absolute -right-60 bottom-3",
-        "bg-[var(--accent)] w-52 mx-6 rounded-sm",
-        "text-white",
+        "bg-scheme-1-foreground w-52 mx-6 rounded-sm",
+        "text-scheme-1-background",
         "transition-all ease-in-out duration-150",
         "flex flex-col gap-4"
       )}
     >
-      <ul className="divide-y divide-[var(--background)]">
+      <ul className="divide-y divide-scheme-1-background">
         {settingOptions.map((option) => (
           <li className="py-2" key={option.label}>{SettingButton(setShow, option)}</li>
         ))}
