@@ -18,7 +18,7 @@ const Sidebar = () => {
   const user = useAuth();
 
   return (
-    <div className="absolute top-0 left-0 h-screen max-w-max p-4 flex flex-col items-center justify-between bg-scheme-1-foreground">
+    <div className="sticky top-0 h-auto max-w-max p-4 flex flex-col items-center justify-between bg-scheme-1-foreground m-2 rounded-xl">
       <div className="flex flex-col items-center gap-8">
         <Image
           src={user?.image ?? ""}

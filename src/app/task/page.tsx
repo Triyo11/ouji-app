@@ -1,6 +1,8 @@
 const Task = () => {
   return (
-    <div>Task</div>
+    <div className="w-full h-full bg-orange-500">
+      <h2>Content of Tasks</h2>
+    </div>
   )
 }
 
