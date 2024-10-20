@@ -9,14 +9,12 @@ const Event = () => {
   return (
     <div className="flex">
       <Sidebar />
-      <div className="flex flex-col w-full h-screen">
-        <div className="max-h-fit w-full p-4">
-          <span className="flex float-end text-3xl text-scheme-1-foreground">
-            {nowDate}
-          </span>
-        </div>
-        <div className="h-full w-full mx-0 my-auto px-4">
+      <div className="flex flex-col h-screen w-full mx-0 my-auto pr-2">
+        <div className="basis-[50%] my-2">
           <Calendar />
+        </div>
+        <div className="basis-[50%] flex flex-col w-full my-2">
+          <h2 className="text-2xl font-bold">List event</h2>
         </div>
       </div>
     </div>
