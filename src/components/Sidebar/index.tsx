@@ -37,7 +37,7 @@ const Sidebar = () => {
           alt="avatar"
           width={30}
           height={30}
-          className="rounded-full border border-scheme-1-background"
+          className="rounded-full object-contain"
         />
         <div className="absolute top-16 right-0 left-0 flex flex-col items-center gap-4">
           <button
