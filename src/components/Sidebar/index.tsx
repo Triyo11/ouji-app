@@ -10,7 +10,7 @@ import { FaCalendarAlt } from "react-icons/fa";
 import Badge from "@mui/material/Badge";
 import { useState } from "react";
 import OverlayPanelSetting from "./OverlayPanelSetting";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import clsx from "clsx";
 import { Icon } from "@mui/material";
 
@@ -19,14 +19,14 @@ const Sidebar = () => {
     useState(false);
   const [invisibleBadgeMessage, setInvisibleBadgeMessage] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
-  const [activeMenu, setActiveMenu] = useState(1);
   // jika menggunakan useAuth() harus menggunakan use client
   const user = useAuth();
   const router = useRouter();
+  const pathname = usePathname();
 
   const menus = [
     { id: 1, label: "Tasks", Icon: <FaListCheck />, href: "/dashboard" },
-    { id: 2, label: "Calendar", Icon: <FaCalendarAlt />, href: "/dashboard" },
+    { id: 2, label: "Calendar", Icon: <FaCalendarAlt />, href: "/event" },
   ];
 
   return (
@@ -75,13 +75,12 @@ const Sidebar = () => {
           <button
             key={menu.id}
             onClick={() => {
-              setActiveMenu(menu.id);
               router.push(menu.href);
             }}
             className={clsx(
               "text-2xl p-1 rounded-lg",
               "transition-all ease-in-out duration-300",
-              activeMenu === menu.id
+              pathname === menu.href
                 ? "text-scheme-1-foreground bg-scheme-1-background"
                 : "text-scheme-1-background bg-scheme-1-background/0"
             )}
