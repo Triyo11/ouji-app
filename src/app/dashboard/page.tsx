@@ -7,8 +7,8 @@ import TabView from "@/components/TabView";
 // import Calendar from "@/components/Calendar";
 import { format } from "date-fns";
 // import { tabs } from "@/components/TabView/tabOptions";
-import Task from "../task/page";
-import Project from "../project/page";
+import Task from "@/components/Task";
+import Project from "@/components/Project";
 
 const Dashboard = async () => {
   const session = await auth();
